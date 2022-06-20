@@ -3,6 +3,7 @@ import { useDispatch ,useSelector } from "react-redux";
 import { register_user } from "../Redux/Action/action";
 import { useNavigate } from 'react-router-dom';
 import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Registration = () => {
@@ -19,14 +20,14 @@ const Registration = () => {
        let object = {email,password,confirm_password}
        console.log(121321,object);
        dispatch(register_user(object));
+       if(response?.data?.status === 200){
+        alert(`${response?.data?.data?.message[0]}`);
+    //     toast(`${response?.data?.data?.message[0]}`,
+    //    {position: toast.POSITION.TOP_CENTER})
+       navigate("/");
+    } 
     }
-    useEffect(()=>{
-        if(response?.data?.status === 200){
-            toast(`${response?.data?.data?.message[0]}`,
-           {position: toast.POSITION.TOP_CENTER})
-            navigate("/");
-        }
-    },[])
+    
     return (
         <div className="home-page">
             <div className="form-section">
@@ -51,7 +52,7 @@ const Registration = () => {
                              />
                         </div>
                         <div className="form-field">
-                            <button onClick={(e)=>Register(e)}>Register</button>
+                            <button className="login-btn" onClick={(e)=>Register(e)}>Register</button>
                         </div>
                         <div className="reg-link">
                             <p>If already Register please<a href="/">Loign</a></p>

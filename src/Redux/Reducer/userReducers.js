@@ -2,7 +2,8 @@ import { REGISTER_SUCCESS,
     LOGIN_SUCCESS, ERROR, 
     SHOW_POST_SUCCESS , 
     CREATE_POST_SUCCESS , 
-    DELETE_POST_SUCCESS  
+    DELETE_POST_SUCCESS ,
+    EDIT_POST_SUCCESS 
 } from "../actionType";
 
 const initialState = {
@@ -40,6 +41,11 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 data: action.payload
+            }
+            case EDIT_POST_SUCCESS:
+            return {
+                ...state,
+                editdata: action.payload
             }
         case ERROR:
             return {

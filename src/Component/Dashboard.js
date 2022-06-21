@@ -7,6 +7,11 @@ import { GiHoodie } from 'react-icons/gi';
 import { Outlet , Link } from "react-router-dom";
 
 const Dashborad = () =>{
+    const logout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("userid");
+        window.location.href="/";
+    }
     return(
         <div>
             <div className="dashboard-page">
@@ -28,7 +33,7 @@ const Dashborad = () =>{
                             </ul>
                         </div>
                         <div className="logout-btn">
-                            <a href="#">Logout</a>
+                            <a onClick={()=>logout()}>Logout</a>
                         </div>
                     </div>
                     <div className="dash-content">

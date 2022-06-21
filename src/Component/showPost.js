@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch , useSelector } from "react-redux";
-import { delete_post, show_all_post } from "../Redux/Action/action";
+import { useNavigate } from "react-router-dom";
+import { delete_post, edit_post, show_all_post } from "../Redux/Action/action";
 
 const ShowPost = () =>{
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const allpost_Resposne = useSelector((state)=>state?.userReducer?.showallpost?.data?.posts);
     console.log(33333,allpost_Resposne);
 
@@ -18,7 +20,9 @@ const ShowPost = () =>{
     }
 
     const editPost = (id) =>{
-      console.log("editable id",id)
+      console.log("editable id",id);
+      navigate(`../create-post/${id}`);
+      dispatch(edit_post(id));
     }
 
     useEffect(()=>{

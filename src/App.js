@@ -22,6 +22,7 @@ function App() {
               <Route path='dash-details' element={<DashDetails />}/>
               <Route path='action/' element={<Action />}>
                 <Route path='create-post' element={<CreatePost/>}/>
+                <Route path='create-post/:id' element={<CreatePost/>}/>
                 <Route path='show-post' element={<ShowPost/>}/>
               </Route>
             </Route>

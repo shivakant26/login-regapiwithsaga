@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import React , { useEffect, useState } from "react";
 import { login_user } from "../Redux/Action/action";
 import { useDispatch , useSelector } from "react-redux";
 
@@ -14,8 +14,14 @@ const Home = () => {
         let login_object = { email, password }
         dispatch(login_user(login_object))
         console.log(31231231,login_object)
+        
     }
-
+    useEffect(()=>{
+        if(login_response?.userReducer?.logindata?.status === 200){
+            alert(`${login_response?.userReducer?.logindata?.data?.message[0]}`)
+            window.location.href = "/dashboard"
+        }
+    },[])
     return (
         <div className="home-page">
             <div className="form-section">

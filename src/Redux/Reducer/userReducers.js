@@ -1,9 +1,11 @@
-import { REGISTER_SUCCESS, 
-    LOGIN_SUCCESS, ERROR, 
-    SHOW_POST_SUCCESS , 
-    CREATE_POST_SUCCESS , 
-    DELETE_POST_SUCCESS ,
-    EDIT_POST_SUCCESS 
+import {
+    REGISTER_SUCCESS,
+    LOGIN_SUCCESS, ERROR,
+    SHOW_POST_SUCCESS,
+    CREATE_POST_SUCCESS,
+    DELETE_POST_SUCCESS,
+    EDIT_POST_SUCCESS,
+    TOTAL_USER_SUCCESS
 } from "../actionType";
 
 const initialState = {
@@ -20,7 +22,6 @@ const userReducer = (state = initialState, action) => {
                 data: action.payload
             }
         case LOGIN_SUCCESS:
-            debugger;
             return {
                 ...state,
                 logindata: action.payload,
@@ -32,20 +33,25 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 showallpost: action.payload
             }
-            case CREATE_POST_SUCCESS:
+        case CREATE_POST_SUCCESS:
             return {
                 ...state,
                 createpost: action.payload
             }
-            case DELETE_POST_SUCCESS:
+        case DELETE_POST_SUCCESS:
             return {
                 ...state,
                 data: action.payload
             }
-            case EDIT_POST_SUCCESS:
+        case EDIT_POST_SUCCESS:
             return {
                 ...state,
                 editdata: action.payload
+            }
+            case TOTAL_USER_SUCCESS:
+            return {
+                ...state,
+                totaluser: action.payload
             }
         case ERROR:
             return {

@@ -1,4 +1,4 @@
-import { REGISTER , LOGIN, SHOW_POST, CREATE_POST ,DELETE_POST, EDIT_POST ,UPDATE_POST} from "../actionType";
+import { REGISTER , LOGIN, SHOW_POST, CREATE_POST ,DELETE_POST, EDIT_POST ,UPDATE_POST, TOTAL_USER} from "../actionType";
 
 export const register_user = (data) =>{
     return{
@@ -44,5 +44,11 @@ export const update_post = (id)=>{
     return{
         type:UPDATE_POST,
         payload:id
+    }
+}
+
+export const total_user = ()=>{
+    return{
+        type:TOTAL_USER
     }
 }

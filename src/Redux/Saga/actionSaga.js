@@ -3,7 +3,7 @@ import { REGISTER , REGISTER_SUCCESS ,
      SHOW_POST_SUCCESS, CREATE_POST,
      CREATE_POST_SUCCESS,DELETE_POST,DELETE_POST_SUCCESS,
      EDIT_POST,EDIT_POST_SUCCESS,
-     UPDATE_POST,UPDATE_POST_SUCCESS
+     UPDATE_POST,UPDATE_POST_SUCCESS, TOTAL_USER, TOTAL_USER_SUCCESS
     } from "../actionType";
 import { call, put, takeEvery } from 'redux-saga/effects';
 import http from "../../Service/fetchapi";
@@ -114,6 +114,21 @@ function* UpdatePost(action){
     }
 }
 
+function* TotalUser(){
+    try{
+        const res = yield call(http.get,"/users")
+        yield put({
+            type:TOTAL_USER_SUCCESS,
+            payload:res
+        })
+    }catch(error){
+        yield put({
+            type:ERROR,
+            payload:error
+        })
+    }
+}
+
 
 export default function* userSaga(){
     yield takeEvery(REGISTER,register);
@@ -123,4 +138,5 @@ export default function* userSaga(){
     yield takeEvery(DELETE_POST,DeletePost)
     yield takeEvery(EDIT_POST,EditPost)
     yield takeEvery(UPDATE_POST,UpdatePost)
+    yield takeEvery(TOTAL_USER,TotalUser)
 }

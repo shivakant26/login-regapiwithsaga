@@ -181,7 +181,7 @@ fieldset{
   border: 2px solid #73d4ff;
   border-radius: 5px;
 }
-.create-post-form .create-btn {
+.create-post-form .create-btn ,.update-btn{
   background-color: #017cfe;
   border: 0;
   padding: 10px 16px;
@@ -193,6 +193,27 @@ fieldset{
   font-weight: 600;
   letter-spacing: 2.1px;
 }
+.update-btn{
+  background-color: #881bc8;
+}
+.update-btn:hover{
+  background-color: #250438;
+}
 .create-post-form .create-btn:hover{
 background-color: #73d4ff;
+}
+.card {
+  box-shadow: 0px 0px 13px rgb(0 0 0 / 60%);
+  padding: 20px;
+  width: 25%;
+  border-radius: 5px;
+  color: #fff;
+  background: #009688;
+}
+.card h4{
+  background: black;
+  padding: 10px;
+  border-radius: 5px;
+  width: 40%;
+  margin: 0 auto;
 }
